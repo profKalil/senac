@@ -28,6 +28,6 @@ public class ManipulaString {
 	}
 
 	private static String cadastrarTarefa(String codigo, String descricao, String inicio, String fim) {
-		return String.format("%s - %s - %s - %s", codigo, descricao, inicio, fim);
+		return String.format("%s - %s - %s - %s\n", codigo, descricao, inicio, fim);
 	}
 }
