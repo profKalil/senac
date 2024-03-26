@@ -1,0 +1,33 @@
+package br.senac.aula02;
+/*
+
+Aula de hoje: manipular Strings
+>> Atribuindo valores
+>> Sobrescrevendo valores nas variáveis
+>> Concatenando Strings
+>> metodo equauls()
+>> metodo contains()
+
+*/
+
+public class ManipulaString {
+	public static void main(String[] args) {
+		String tarefa = "";
+
+		// tarefa = tarefa + codigo + " - " + descricao + " - " + inicio + " - " + fim +
+		// "\n";
+		tarefa = tarefa + cadastrarTarefa("001", "Estudar Java", "10", "11");
+		tarefa += cadastrarTarefa("002", "Fazer compras", "11", "12");
+		tarefa += cadastrarTarefa("003", "Limpar a casa", "12", "13");
+		exibirTarefas(tarefa);
+	}
+
+	private static void exibirTarefas(String tarefa) {
+		System.out.println("Codigo - Tarefa - Inicio - Fim");
+		System.out.println(tarefa);
+	}
+
+	private static String cadastrarTarefa(String codigo, String descricao, String inicio, String fim) {
+		return String.format("%s - %s - %s - %s", codigo, descricao, inicio, fim);
+	}
+}
