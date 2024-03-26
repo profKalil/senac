@@ -9,7 +9,7 @@
 
 */
 
-public class Main {
+public class manipulaString {
   public static void main(String[] args) {
 
     // Variáveis
