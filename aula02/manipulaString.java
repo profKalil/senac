@@ -9,7 +9,7 @@
 
 */
 
-public class manipulaString {
+public class Main {
   public static void main(String[] args) {
 
     // Variáveis
@@ -51,6 +51,7 @@ public class manipulaString {
 
     // Saída 
 
+    System.out.println("Codigo - Tarefa - Inicio - Fim");
     System.out.println(tarefa);
 
   }}
