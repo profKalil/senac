@@ -1,0 +1,36 @@
+/*
+ * Objetos em Java: 
+ * 
+ * boolean 	=> Boolean
+ * int 		=> Integer
+ * double 	=> Double
+ * 				String 
+ * 				Date
+ * 
+ * */
+
+
+package br.senac.aula01;
+
+public class ManipulaVariaveis {
+
+	public static void main(String[] args) {
+		boolean opcao = false;
+		int numero = 1;
+		String texto = "1";
+		//char [] texto = {'1'};
+		//Integer numeroObj;
+		
+		boolean resultado = opcao && !opcao;
+		numero = numero + 2;
+		// numero += 2;
+		resultado = (numero>=2) || resultado;
+		numero = 1;
+		//resultado = (numero==texto)&&resultado;
+		//resultado = Integer.toString(numero).equals(texto) && resultado;
+		resultado = (numero == Integer.parseInt(texto)) && resultado;
+		
+		System.out.println(resultado);
+	}
+
+}
