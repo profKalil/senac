@@ -1,0 +1,137 @@
+import java.lang.Math;
+
+public class Main {
+  public static void main(String[] args) {
+    //Exercício 01
+    //  Faça um Programa que mostre a mensagem "Alo mundo" na tela.
+      OlaMundo();
+    
+    //Exercício 02
+    //  Faça um Programa que receba um número e então mostre a mensagem O número informado foi [número].
+      RecebeNumero();
+
+    //Exercício 03
+    //  Faça um Programa que receba dois números e imprima a soma.
+      ImprimeSoma();
+
+    //Exercicio 04
+    //  Faça um Programa que receba as 4 notas bimestrais e mostre a média.
+      CalculaMedia();
+
+    //Exercicio 05
+    // Faça um Programa que converta metros para centímetros
+      ConverteMetrosParaCentimetros();
+
+    //Exercício 06
+    // Faça um Programa que receba quanto você ganha por hora e o número de horas trabalhadas no
+    // mês. Calcule e mostre o total do seu salário no referido mês.
+      CalculaSalario();
+
+    //Exercício 07
+    // Faça um Programa que receba a temperatura em graus Farenheit, transforme e mostre a
+    // temperatura em graus Celsius.
+      ConverteFarenheitParaCelsius();
+
+    //Exercício 08
+    // Faça um Programa que peça 2 números inteiros e um número real. Calcule e mostre: 
+    // a. o produto do dobro do primeiro com metade do segundo .
+    // b. a soma do triplo do primeiro com o terceiro.
+    // c. o terceiro elevado ao cubo.
+      RecebeTresNumeros();
+
+    //Exercício 09
+    // Tendo como dado de entrada a altura, construa um algoritmo que calcule seu peso ideal,
+    // utilizando as seguintes fórmulas:  Para homens: (72.7*h) - 58  Para mulheres: (62.1*h) - 44.7 (h = altura)
+      CalculaPesoIdeal();
+
+    //Exercício 10
+    // Faça um Programa que receba quanto você ganha por hora e o número de horas trabalhadas no
+    // mês. Calcule e mostre o total do seu salário no referido mês, sabendo-se que são descontados 11%
+    // para o Imposto de Renda, 8% para o INSS e 5% para o sindicato, faça um programa que nos dê:
+    //a. salário bruto.
+    //b. quanto pagou ao INSS.
+    //c. quanto pagou ao sindicato.
+    //d. o salário líquido.
+    //Obs.: Salário Bruto - Descontos = Salário Líquido.
+      CalculaSalarioLiquido();
+  }
+  
+  // método do ex01
+  public static void OlaMundo () {
+    System.out.println ("Ola mundo!");
+  }
+  // método do ex02
+  public static void RecebeNumero () {
+    int numero = 10;
+    System.out.println ("O número informado foi " + numero);
+  }
+  // método do ex03
+  public static void ImprimeSoma () {
+    int numero1 = 10;
+    int numero2 = 20;
+    int soma = numero1 + numero2;
+    System.out.println ("A soma dos números é " + soma);
+  }
+  // método do ex04
+  public static void CalculaMedia () {
+    int nota1 = 10;
+    int nota2 = 20;
+    int nota3 = 30;
+    int nota4 = 40;
+    int media = (nota1 + nota2 + nota3 + nota4) / 4;
+    System.out.println ("A média das notas é " + media);
+  }
+  // método do ex05
+  public static void ConverteMetrosParaCentimetros () {
+    double metros = 10;
+    double centimetros = metros * 100;
+    System.out.println (metros + " metros equivalem a " + centimetros + " centímetros");
+  }
+  // método do ex06
+  public static void CalculaSalario () {
+    double salarioHora = 10;
+    int horasTrabalhadas = 160;
+    double salarioMes = salarioHora * horasTrabalhadas;
+    System.out.printf ("O salário do mês é %.2f " , salarioMes);
+  }
+  // método do ex07
+  public static void ConverteFarenheitParaCelsius () {
+    double farenheit = 10;
+    double celsius = (5 * (farenheit - 32)) / 9;
+    System.out.printf ("A temperatura de %.2f graus Farenheit equivale a %.2f graus Celsius" , farenheit , celsius);
+  }
+  // método do ex08
+  public static void RecebeTresNumeros () {
+    int numero1 = 10;
+    int numero2 = 20;
+    double numero3 = 30.5;
+    double produto = numero1 * 2 + numero2 / 2;
+    double soma = numero1 * 3 + numero3;
+    double cubo = (numero3*numero3*numero3);
+    //double cubo = Math.pow(numero3, 3);
+    System.out.println ("O produto do dobro do primeiro com metade do segundo é " + produto);
+    System.out.println ("A soma do triplo do primeiro com o terceiro é " + soma);
+    System.out.println ("O terceiro elevado ao cubo é " + cubo);
+  }
+  // método do ex09
+  public static void CalculaPesoIdeal () {
+    double altura = 1.80;
+    double pesoIdealHomem = (72.7 * altura) - 58;
+    double pesoIdealMulher = (62.1 * altura) - 44.7;
+    System.out.println("O peso ideal para um homem com altura " + altura + "m é " + pesoIdealHomem + "kg");
+    System.out.println("O peso ideal para uma mulher com altura " + altura + "m é " + pesoIdealMulher + "kg");    
+  }
+  // método do ex10
+  public static void CalculaSalarioLiquido () {
+    double salarioHora = 10;
+    int horasTrabalhadas = 160;
+    double salarioBruto = salarioHora * horasTrabalhadas;
+    double inss = salarioBruto * 0.08;
+    double sindicato = salarioBruto * 0.05;
+    double salarioLiquido = salarioBruto - inss - sindicato;
+    System.out.printf ("O salário bruto é %.2f " , salarioBruto);
+    System.out.printf ("\nO valor pago ao INSS é %.2f " , inss);
+    System.out.printf ("\nO valor pago ao sindicato é %.2f " , sindicato);
+    System.out.printf ("\nO salário líquido é %.2f " , salarioLiquido);
+  }
+}
