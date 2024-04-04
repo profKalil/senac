@@ -1,0 +1,25 @@
+package br.senac.randomeoutros;
+import java.util.Random;
+
+public class RandomTest {
+
+	public static void main(String[] args) {
+		Random r = new Random();
+		int numeroInteiro = r.nextInt(13)+1;
+		boolean valor = r.nextBoolean();
+		double numeroDouble = Math.random()*10;
+		int numero1 = -10;
+		int numero2 = 20;
+		int numeroMaior = Math.max(numero1, numero2);
+		int numeroMenor = Math.min(numero1, numero2);
+		int numeroAbsoluto = Math.abs(numero1);
+
+		/*System.out.println("O numero fornecido foi : " + numeroInteiro);
+		System.out.println("O valor fornecido foi : " + valor);
+		System.out.printf("O numero fornecido foi : %.2f", numeroDouble);
+		System.out.println("\nO maior número é " + numeroMaior);
+		System.out.println("O menor número é " + numeroMenor);*/
+		System.out.println("Número absoluto : " + numeroAbsoluto);
+	}
+
+}
