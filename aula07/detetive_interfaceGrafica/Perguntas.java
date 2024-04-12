@@ -8,7 +8,7 @@ public class Perguntas {
 	private final String PERG3 = "Mora perto da vítima?";
 	private final String PERG4 = "Devia para a vítima?";
 	private final String PERG5 = "Já trabalhou para a vítima?";
-	public int contador=0;
+	private int contador=0;
 	
 	public Perguntas() {
 		perguntar();
@@ -16,41 +16,45 @@ public class Perguntas {
 	}
 	
 	public void perguntar () {
-		
 		String resposta1 = String.valueOf(JOptionPane.showConfirmDialog(null, getPERG1()));
 		String sim="0";
 		if (resposta1.equals(sim) ) {
-			this.contador++;
+			setContador(1);
 		}
 		String resposta2 = String.valueOf(JOptionPane.showConfirmDialog(null, getPERG2())); 
 		if (resposta2.equals(sim) ) {
-			this.contador++;
+			setContador(1);
 		}
 		String resposta3 = String.valueOf(JOptionPane.showConfirmDialog(null, getPERG3()));
 		if (resposta3.equals(sim) ) {
-			this.contador++;
+			setContador(1);
 		}
 		String resposta4 = String.valueOf(JOptionPane.showConfirmDialog(null, getPERG4()));
 		if (resposta4.equals(sim) ) {
-			this.contador++;
+			setContador(1);
 		}
 		String resposta5 = String.valueOf(JOptionPane.showConfirmDialog(null, getPERG5()));
 		if (resposta5.equals(sim) ) {
-			this.contador++;
+			setContador(1);
 		}
 	}
 	
-	
 	private String veredito() {
-		if (this.contador == 5) {
+		if (getContador() == 5) {
 			return "Assasino";
-		} else if (this.contador==4 || this.contador==3) {
+		} else if (getContador()==4 || getContador()==3) {
 			return "Cumplice";
-		} else if (this.contador==2) {
+		} else if (getContador()==2) {
 			return "Suspeito";
 		} return "Inocente";
 	}
 	
+	private void setContador(int i) {
+		this.contador=this.contador+i;
+	}
+	private int getContador() {
+		return this.contador;
+	}
 	private String getPERG1() {
 		return PERG1;
 	}
@@ -66,5 +70,4 @@ public class Perguntas {
 	private String getPERG5() {
 		return PERG5;
 	}
-	
 }
