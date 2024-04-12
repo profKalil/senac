@@ -2,7 +2,7 @@ package detetive;
 
 import javax.swing.JOptionPane;
 
-public class Perguntas {
+public class Perguntas extends JOptionPane {
 	private final String PERG1 = "Telefonou para a vítima?";
 	private final String PERG2 = "Esteve no local do crime?";
 	private final String PERG3 = "Mora perto da vítima?";
@@ -12,29 +12,24 @@ public class Perguntas {
 	
 	public Perguntas() {
 		perguntar();
-		JOptionPane.showMessageDialog(null, veredito());
+		showMessageDialog(null, veredito());
 	}
 	
 	public void perguntar () {
-		String resposta1 = String.valueOf(JOptionPane.showConfirmDialog(null, getPERG1()));
-		String sim="0";
-		if (resposta1.equals(sim) ) {
+		
+		if (showConfirmDialog(null, getPERG1())==0) {
 			setContador(1);
 		}
-		String resposta2 = String.valueOf(JOptionPane.showConfirmDialog(null, getPERG2())); 
-		if (resposta2.equals(sim) ) {
+		if (showConfirmDialog(null, getPERG2())==0) {
 			setContador(1);
 		}
-		String resposta3 = String.valueOf(JOptionPane.showConfirmDialog(null, getPERG3()));
-		if (resposta3.equals(sim) ) {
+		if (showConfirmDialog(null, getPERG3())==0) {
 			setContador(1);
 		}
-		String resposta4 = String.valueOf(JOptionPane.showConfirmDialog(null, getPERG4()));
-		if (resposta4.equals(sim) ) {
+		if (showConfirmDialog(null, getPERG4())==0) {
 			setContador(1);
 		}
-		String resposta5 = String.valueOf(JOptionPane.showConfirmDialog(null, getPERG5()));
-		if (resposta5.equals(sim) ) {
+		if (showConfirmDialog(null, getPERG5())==0) {
 			setContador(1);
 		}
 	}
@@ -52,9 +47,11 @@ public class Perguntas {
 	private void setContador(int i) {
 		this.contador=this.contador+i;
 	}
+	
 	private int getContador() {
 		return this.contador;
 	}
+
 	private String getPERG1() {
 		return PERG1;
 	}
