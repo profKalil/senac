@@ -114,7 +114,6 @@ public class Controller {
 		boolean condicao = false;
 		try (BufferedReader reader = new BufferedReader(
 				new FileReader("C:\\Users\\professor\\Desktop\\java\\Escolha\\src\\escolha\\matricula.txt"))) {
-			System.out.println(matricula.toString());
 			String linha;
 			while ((linha = reader.readLine()) != null) {
 				linha = linha.replaceAll("[^0-9]", "");
