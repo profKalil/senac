@@ -1,11 +1,8 @@
 package controller;
 
 import java.awt.event.*;
-/*import java.io.BufferedReader;
-import java.io.FileReader;*/
 import java.sql.*;
 import java.util.*;
-
 import model.*;
 import view.*;
 
@@ -19,15 +16,24 @@ public class Controller {
 	private int rio = 0;
 	private int salvador = 0;
 	private int floripa = 0;
-	private String matriculasVotadas = "";
+	//private String matriculasVotadas = "";
+	private List<String> arrayMatricula = new ArrayList<>();
 
 	private ActionListener ouvinteBotao = (ActionEvent ae) -> {
 		try {
 			String matricula = tela.getMatricula();
 			String destino1 = "Rio de Janeiro", destino2 = "Salvador";
-			String destinoEscolhido = tela.getDestinoEscolhido(); 
+			String destinoEscolhido = tela.getDestinoEscolhido();
+			boolean condicao=false;
 
-			if (matriculasVotadas.equals(matricula)) {
+			for (int i = 0; i < arrayMatricula.size(); i++) {
+				if (arrayMatricula.get(i).equals(matricula)) {
+					condicao = true;
+					break;
+				}
+			}
+
+			if (condicao) {
 				mensagemView.exibirMensagem("Esse aluno já votou!");
 			} else if (destinoEscolhido != null && matricula != null && verificarMatriculaDB(matricula)) {
 
@@ -41,15 +47,17 @@ public class Controller {
 				} else {
 					floripa++;
 				}
+
 				votos--;
-				matriculasVotadas += matricula;
+				arrayMatricula.add(matricula);
+
 				if (votos == 0) {
 					finalizarEscolha();
 				} else {
 					mensagemView.exibirMensagem("Obrigado por participar. Aguarde os outros alunos votarem.");
 				}
 			} else {
-				mensagemView.exibirMensagem("Selecione um destino e informe sua matrícula!");
+				mensagemView.exibirMensagem("Erro. Verifique matricula ou destino");
 			}
 		} catch (Exception err) {
 			mensagemView.exibirMensagem("Verifique sua matrícula");
@@ -74,7 +82,7 @@ public class Controller {
 			public void run() {
 				finalizarEscolha();
 			}
-		}, 60 * 60 * 1000);
+		}, 60 * 1000);
 	}
 
 	public void setDestino(DestinoModel d) {
@@ -84,24 +92,25 @@ public class Controller {
 	private int getNumeroDeAlunosDB() {
 		int numeroDeAlunos = 0;
 		try {
-			Connection conexaoSQL = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_escolha", "root", "1234");
+			Connection conexaoSQL = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_escolha", "root",
+					"1234");
 			Statement codigoSQL = conexaoSQL.createStatement();
 			ResultSet execucaoSQL = codigoSQL.executeQuery("SELECT COUNT(*) FROM alunos");
 
-			if (executaSQL.next()) {
+			if (execucaoSQL.next()) {
 				numeroDeAlunos = execucaoSQL.getInt(1); // getInt(matricula) ou getString(nome)
 			}
 
-			executacaoSQL.close();
-			codigoSQL.close();
 			execucaoSQL.close();
+			codigoSQL.close();
+			conexaoSQL.close();
 
 		} catch (Exception erro) {
-			System.out.println(erro); 
+			System.out.println(erro);
 		}
 		return numeroDeAlunos;
 	}
-	
+
 	private String resultado() {
 
 		int maiorVotos = Math.max(rio, Math.max(salvador, floripa));
@@ -123,15 +132,13 @@ public class Controller {
 	public boolean verificarMatriculaDB(String matricula) {
 		boolean condicao = false;
 		try {
-			Connection conexaoSQL = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_escolha", "root", "1234");
+			Connection conexaoSQL = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_escolha", "root",
+					"1234");
 			Statement codigoSQL = conexaoSQL.createStatement();
 			ResultSet execucaoSQL = codigoSQL.executeQuery("SELECT matricula FROM alunos");
-		
-			String linha, matriculaArquivo;
+
 			while (execucaoSQL.next()) {
-				linha = Integer.toString( execucaoSQL.getInt(matricula) );				 
-				matriculaArquivo = linha.trim();				 
-				if (matricula.equals(matriculaArquivo)) {
+				if (matricula.equals(execucaoSQL.getString(1).trim())) {
 					condicao = true;
 					break;
 				}
@@ -139,7 +146,7 @@ public class Controller {
 			execucaoSQL.close();
 			codigoSQL.close();
 			conexaoSQL.close();
-		
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
