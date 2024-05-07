@@ -25,11 +25,12 @@ public class Controller {
 		try {
 			String matricula = tela.getMatricula();
 			String destino1 = "Rio de Janeiro", destino2 = "Salvador";
-			String destinoEscolhido = tela.getDestinoEscolhido();
-			boolean condicao = verificarMatriculaDB(matricula);
-			if (matriculasVotadas.contains(matricula)) {
-				mensagemView.exibirMensagem("Este aluno já fez sua escolha!");
-			} else if (destinoEscolhido != null && matricula != null && condicao) {
+			String destinoEscolhido = tela.getDestinoEscolhido(); 
+
+			if (matriculasVotadas.equals(matricula)) {
+				mensagemView.exibirMensagem("Esse aluno já votou!");
+			} else if (destinoEscolhido != null && matricula != null && verificarMatriculaDB(matricula)) {
+
 				alunoModel = new AlunoModel(Integer.parseInt(matricula));
 				alunoModel.setDestinoEscolhido(destinoEscolhido);
 
@@ -41,7 +42,7 @@ public class Controller {
 					floripa++;
 				}
 				votos--;
-				matriculasVotadas += matricula.toString();
+				matriculasVotadas += matricula;
 				if (votos == 0) {
 					finalizarEscolha();
 				} else {
@@ -87,7 +88,7 @@ public class Controller {
 			Statement codigoSQL = conexaoSQL.createStatement();
 			ResultSet execucaoSQL = codigoSQL.executeQuery("SELECT COUNT(*) FROM alunos");
 
-			if (rodaSQL.next()) {
+			if (executaSQL.next()) {
 				numeroDeAlunos = execucaoSQL.getInt(1); // getInt(matricula) ou getString(nome)
 			}
 
@@ -96,20 +97,11 @@ public class Controller {
 			execucaoSQL.close();
 
 		} catch (Exception erro) {
-			System.out.println(erro);
-			;
+			System.out.println(erro); 
 		}
 		return numeroDeAlunos;
 	}
-
-	/*
-	 * private int getNumeroDeAlunos() { int numeroDeAlunos = 0; try (BufferedReader
-	 * reader = new BufferedReader( new FileReader(
-	 * "C:\\Users\\Windows\\Desktop\\programas_java\\Escolha\\src\\controller\\alunos.txt"
-	 * ))) { while (reader.readLine() != null) { numeroDeAlunos++; } } catch
-	 * (Exception erro) { erro.printStackTrace(); } return numeroDeAlunos; }
-	 */
-
+	
 	private String resultado() {
 
 		int maiorVotos = Math.max(rio, Math.max(salvador, floripa));
@@ -137,10 +129,8 @@ public class Controller {
 		
 			String linha, matriculaArquivo;
 			while (execucaoSQL.next()) {
-				linha = Integer.toString( execucaoSQL.getInt(matricula) );
-				linha = linha.replaceAll("[^0-9]", "");
-				matriculaArquivo = linha.trim();
-				System.out.println(matriculaArquivo);
+				linha = Integer.toString( execucaoSQL.getInt(matricula) );				 
+				matriculaArquivo = linha.trim();				 
 				if (matricula.equals(matriculaArquivo)) {
 					condicao = true;
 					break;
@@ -155,15 +145,4 @@ public class Controller {
 		}
 		return condicao;
 	}
-
-	/*
-	 * public boolean verificarMatricula(String matricula) { boolean condicao =
-	 * false; try (BufferedReader reader = new BufferedReader(new FileReader(
-	 * "C:\\Users\\Windows\\Desktop\\programas_java\\Escolha\\src\\controller\\matricula.txt"
-	 * ))) { String linha; while ((linha = reader.readLine()) != null) { linha =
-	 * linha.replaceAll("[^0-9]", ""); String matriculaArquivo = linha.trim();
-	 * System.out.println(matriculaArquivo); if (matricula.equals(matriculaArquivo))
-	 * { condicao = true; break; } } } catch (Exception e) { e.printStackTrace(); }
-	 * return condicao; }
-	 */
 }
