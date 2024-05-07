@@ -83,17 +83,17 @@ public class Controller {
 	private int getNumeroDeAlunosDB() {
 		int numeroDeAlunos = 0;
 		try {
-			Connection conecta = DriverManager.getConnection("url_do_SGDB", "usuario", "senha");
-			Statement pegaSQL = conecta.createStatement();
-			ResultSet rodaSQL = pegaSQL.executeQuery("SELECT COUNT(*) FROM alunos");
+			Connection conexaoSQL = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_escolha", "root", "1234");
+			Statement codigoSQL = conexaoSQL.createStatement();
+			ResultSet execucaoSQL = codigoSQL.executeQuery("SELECT COUNT(*) FROM alunos");
 
 			if (rodaSQL.next()) {
-				numeroDeAlunos = rodaSQL.getInt(1); // getInt(matricula) ou getString(nome)
+				numeroDeAlunos = execucaoSQL.getInt(1); // getInt(matricula) ou getString(nome)
 			}
 
-			rodaSQL.close();
-			pegaSQL.close();
-			conecta.close();
+			executacaoSQL.close();
+			codigoSQL.close();
+			execucaoSQL.close();
 
 		} catch (Exception erro) {
 			System.out.println(erro);
@@ -131,7 +131,7 @@ public class Controller {
 	public boolean verificarMatriculaDB(String matricula) {
 		boolean condicao = false;
 		try {
-			Connection conexaoSQL = DriverManager.getConnection("url_do_SGBD", "usuario", "senha");
+			Connection conexaoSQL = DriverManager.getConnection("jdbc:mysql://localhost:3306/db_escolha", "root", "1234");
 			Statement codigoSQL = conexaoSQL.createStatement();
 			ResultSet execucaoSQL = codigoSQL.executeQuery("SELECT matricula FROM alunos");
 		
