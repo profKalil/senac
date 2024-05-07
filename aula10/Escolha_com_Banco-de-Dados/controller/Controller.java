@@ -16,7 +16,6 @@ public class Controller {
 	private int rio = 0;
 	private int salvador = 0;
 	private int floripa = 0;
-	//private String matriculasVotadas = "";
 	private List<String> arrayMatricula = new ArrayList<>();
 
 	private ActionListener ouvinteBotao = (ActionEvent ae) -> {
