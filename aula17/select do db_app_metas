@@ -1,0 +1,10 @@
+SELECT 
+    u.cpf, u.nome, u.senha, u.email,
+    m.id AS meta_id, m.tipo AS tipo_meta, m.valor AS valor_meta, m.acumulado AS acumulado_meta,
+    p.id AS progresso_id, p.valor AS valor_progresso
+FROM 
+    tb_usuario u
+LEFT JOIN 
+    tb_meta m ON u.cpf = m.cpf
+LEFT JOIN 
+    tb_progresso p ON m.id = p.id_meta;
