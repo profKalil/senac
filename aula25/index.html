@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
+    <title>Aula25</title>
+</head>
+
+<body>
+    <h1>
+        <!--A tag h1 vai até h6-->
+        CSS
+    </h1>
+    <!--Definição de CSS e pra que serve-->
+    <p>
+        <span>Definição:</span> É a estilização do site!
+    </p>
+
+    <!--Seletores
+        Pegar apenas a tag
+        >> body { background-color: blue; }
+        Pegar a tag por uma id
+        >> #paragrafo1 {color: red;}
+        Pegar através de uma classe
+        >> .paragrafos-css {text-align: justify;}
+    -->
+    <p>
+        <span>Sintaxe:</span>
+        seletor {propriedades : valor; }
+    </p>
+
+    <p>
+        <span>Comentários:</span>
+        /* Isso é um comentário em CSS */
+
+    </p>
+
+    <p>
+        <span>Cores:</span>
+    <ul>
+        <li>Usar o nome em inglês, ou #hexadecimal ou rgb(vermelho, verde, azul)</li>
+        <li>Exemplo: blue; #0000FF; rbg(0, 0, 255) 2**8 ou 2^8, ou seja, 256 graduações para cada cor.
+            <ul class="recuo">
+                <li>Para fonte, basta usar o seletor "color"</li>
+                <li>Para fundo, usar "background-color"</li>
+                <li>Para borda, usar "border-color"</li>
+            </ul>
+        </li>
+    </ul>
+
+    </p>
+
+    <p>
+        <span>Fonte:</span>
+    <p id="serifa">
+        Fonte com serifa.
+    </p>
+    <p id="sem-serifa">
+        Fonte sem serifa.
+    </p>
+    <ul>
+        <li>Tamanho: font-size:tamanho em px;</li>
+        <li>Orientação: text-align: justify ou center ou right </li>
+    </ul>
+    </p>
+    <p>
+        <span>Margem, padding e borda:</span>
+
+    <pre>
+        ----------------------------------------- margem(fora)
+        -          padding(dentro)              -
+        -                                       -
+        -                                       -
+        -                                       -
+        -                                       -
+        -                                       -
+        -                                       -
+        -                                       -
+        -                                       -
+        ----------------------------------------- -> borda (largura da linha)
+    </pre>
+    <ul>
+        <li>Margem</li>
+        <ul class="recuo">
+            <li>margin: superior, direta, inferior, esquerda</li>
+            <li>seletores: margin ou margin-top ou margin-right ou margin-bottom ou margin-left</li>
+            <li>Se usar "margin: valor em px", ele atribui este valor para todas as margens </li>
+        </ul>
+        <li>Padding</li>
+        <ul class="recuo">
+            <li>Praticamente a mesma sintaxe da margem, no caso margem interna (padding)</li>
+            <li>padding: valor semelhante ao que é feito com margin</li> 
+        </ul>
+        <li>Borda</li>
+        <ul class="recuo">
+            <li>Definir a largura na criação da borda "Ex.: border: 1px"</li>
+            <li>Ou alterar depois com "border-width: tamanho em px""</li> 
+        </ul>
+    </ul>
+    </p>
+    <p>
+        <span>Tamanho</span>
+        <ul>
+            <li>Largura: pode ser em px ou "auto" ou porcentagem, por exemplo.</li>
+            <li>Usar "width:auto;" ajuda a não distorcer uma imagem (fica "responsivo") </li>
+        </ul>
+    </p>
+
+    <form>
+        <label for="nome">
+            Seu nome:
+           <input id="nome" type="text">
+        </label>
+        <button type="submit">Enviar</button>
+    </form>
+
+    
+
+
+
+</body>
+
+</html>
