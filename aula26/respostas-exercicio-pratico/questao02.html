@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <title>Page Title</title>
+  <meta charset="UTF-8">
+
+<!-------Inicio do style------->
+
+  <style>
+    body {
+      margin-top: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: "Arial Narrow", Arial, sans-serif;
+      font-size: 18px;
+    }
+    .coluna1 {
+      font-weight: bold;
+      width: 150px;
+    }
+    .coluna2 {
+      width: 350px;
+    }
+    .formulario {
+      width: 500px;
+    }
+    .titulo {
+      font-family: arial;
+      font-size: 22px;
+      text-align: left;
+      font-weight: bold;
+      background-color: yellow;
+      
+    }
+    .titulo2 {
+      font-family: arial;
+      font-size: 22px;
+      text-align: left;
+      font-weight: bold;
+    }
+    textarea {
+      width: 100%;
+      height: 100px;
+    }
+    .botao {
+      margin-right: 10px;
+    }
+  </style>
+</head>
+    
+<!-------Início do body-------->
+    
+<body>
+  
+  <div class="formulario">
+    <h1 class="titulo">SISTEMA DE GESTÃO ACADÊMICA</h1>
+    <h2 class="titulo2">MANUTENÇÃO DE USUÁRIOS DO SISTEMA INTERNO</h2>
+    <form>
+      <table>
+        <tr>
+          <td  class="coluna1"><label for="login">Login </label></td>
+          <td  class="coluna2"><input type="text" id="login" name="login"></td>
+        </tr>
+        <tr>
+          <td  class="coluna1"><label for="senha">Senha </label></td>
+          <td  class="coluna2"><input type="password" id="senha" name="senha"></td>
+        </tr>
+        <tr>
+          <td  class="coluna1"><label for="status">Status </label></td>
+          <td  class="coluna2">
+            <select id="status" name="status">
+              <option value="inativo">Inativo</option>
+              <option value="ativo">Ativo</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td  class="coluna1"><label>Tipo </label></td>
+          <td  class="coluna2">
+            <label>
+              <input type="radio" id="tecnico" name="tipo" value="tecnico">Técnico
+            </label>
+            <label>
+              <input type="radio" id="professor" name="tipo" value="professor">Professor
+            </label>
+            <label>
+              <input type="radio" id="aluno" name="tipo" value="aluno">Aluno
+            </label>
+          </td>
+        </tr>
+        <tr>
+          <td  class="coluna1"><label for="data_criacao">Data Criação </label></td>
+          <td  class="coluna2"><input type="text" id="data_criacao" name="data_criacao"></td>
+        </tr>
+        <tr>
+          <td  class="coluna1"><label>Perfil </label></td>
+          <td  class="coluna2">
+            <label>
+              <input type="radio" id="convidado" name="perfil" value="convidado">Convidado
+            </label>
+            <label>
+              <input type="radio" id="administrador" name="perfil" value="administrador">Administrador
+            </label>
+          </td>
+        </tr>
+        <tr>
+          <td  class="coluna1"><label for="observacoes">Observações </label></td>
+          <td  class="coluna2">
+            <textarea id="observacoes" name="observacoes"></textarea>              
+          </td>
+        </tr>
+        <tr>
+          <td  class="coluna1"><label>Módulos </label></td>
+          <td  class="coluna2">
+            <label>
+              <input type="checkbox" id="compras" name="compras" value="compras">Compras
+            </label>
+            <label>
+              <input type="checkbox" id="biblioteca" name="biblioteca" value="biblioteca">Biblioteca
+            </label>
+            <label>
+              <input type="checkbox" id="academico" name="academico" value="academico">Acadêmico
+            </label><br><br>
+            <label>
+              <input type="checkbox" id="documentacao" name="documentacao" value="documentacao">Documentação
+            </label>
+            <label>
+              <input type="checkbox" id="recursos_humanos" name="recursos_humanos" value="recursos_humanos">Recursos Humanos
+            </label>
+          </td>
+        </tr>
+      </table>
+      <input class="botao" type="button" value="Cadastrar"><input type="button" value="Excluir">
+    </form>
+  </div>
+</body>
+</html>

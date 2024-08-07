@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cadastro Geral</title>
+
+<!-------------inicio da folha de estilo------------>
+
+  <style>
+    body {
+      margin-top: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: "Arial Narrow", Arial, sans-serif;
+      font-size: 17px;
+      color: rgb(15, 159, 15);
+    }
+    .container{
+      display: flex;
+      border-style: solid;
+      border-color: rgb(15, 159, 15);
+      border-padding: 10px;
+      width: 800px;
+      height: 100%;
+      margin: 50px;
+      background-color: rgb(240, 250, 241);
+    }
+    table {
+      margin-top: 20px;
+      width: 100%;
+      display: inline-block;
+    }
+    legend {
+      border: 2px solid #ccc;
+      background-color: #fff;
+      font-weight: bold;
+    }
+    img {
+      max-width: auto;
+      height: 100%;
+    }
+    .dados_pessoais {
+      display: inline-block;
+      width: 320px;
+      background-image: url("C:/Users/Professor/Documents/imagens/profissao.jpg");
+      background-repeat: no-repeat;
+      background-position: right;
+    }
+    .localizacao {
+      display: inline-block;
+      width: 320px;
+      background-image: url("C:/Users/Professor/Documents/imagens/localizacao.jpg");
+      background-repeat: no-repeat;
+      background-position: right bottom;
+    }
+    .faixa_etaria {
+      justify-content: left;
+      background-image: url("file:///C:/Users/Professor/Documents/imagens/etaria.jpg");
+      background-repeat: no-repeat;
+      background-position: right bottom;
+    }
+    .esportes {
+      background-image: url("C:/Users/Professor/Documents/imagens/esporte.jpg");
+      background-repeat: no-repeat;
+      background-position: right bottom;
+    }
+    .comentario {
+      background-image: url("C:/Users/Professor/Documents/imagens/comentario.jpg");
+      background-repeat: no-repeat;
+      background-position: right;
+      margin-bottom: 15px;
+    }
+    .col01 {
+      //border: solid 1px red;
+      display: inline-block;
+      text-align: left;
+      width: 330px;
+    }
+    .col02 {
+      //border: solid 1px red;
+      display: inline-block;
+      text-align: left;
+      width: 310px;
+    }
+    .form1 {
+      width: 700px;
+    } 
+    .largura {
+      width: 250px;
+    }
+    label {
+      display: inline-block;
+    }
+    textarea {
+      width: 450px;
+      height: 180px;
+    }
+    .botao {
+      margin-right: 10px;
+      margin-bottom: 20px;
+      border: solid 2px rgb(15, 159, 15);
+    }
+  </style>
+</head>
+
+<!-------------inicio do corpo da página------------>
+
+<body>
+  <div class="container">
+    <img src="C:/Users/Professor/Documents/imagens/form.jpg" alt="figura 1: homem segura um formulário">
+    <table>
+      <tr >
+        <td >
+          <form class="form1">
+            <fieldset>
+            <legend>Cadastro Geral</legend>
+              <div class="dados_pessoais">
+	        <fieldset>
+                <legend>Dados Pessoais</legend>
+                  <label for="nome">Nome Completo:</label>
+                  <input class="largura" type="text" id="nome" name="nome"><br><br>
+                  <label for="profissao">Profissão:</label>
+                  <select class="largura" id="profissao" name="profissao">
+  		    <option value="Sua Profissao" selected>Sua Profissão</option>
+                    <option value="op001">Op001</option>
+                  </select>
+                </fieldset>
+              </div>
+              <div class="localizacao">
+	        <fieldset>
+                <legend>Localização</legend>
+                  <label for="email">Email:</label>
+                  <input class="largura" type="email" id="email" name="email"><br><br>
+                  <label for="rua">Rua:</label>
+                  <input class="largura" type="text" id="rua" name="rua">
+                </fieldset>
+              </div>
+	    </fieldset>               
+          </form>
+        </td>
+      </tr>
+      <tr>
+       <td>
+          <div class="faixa_etaria">
+            <form>
+              <fieldset>
+              <legend>Faixa Etária</legend>
+       		<div class="col01">		  
+                  <label><input type="radio" id="ate20" name="idade" value="ate20">Até 20 anos</label><br>          	
+                  <label><input type="radio" id="de20a30" name="idade" value="de20a30">mais de 20 até 30 anos</label>
+                  <label><input type="radio" id="de30a40" name="idade" value="de30a40">mais de 30 até 40 anos</label>
+		</div>
+		<div class="col02">		  
+                  <label><input type="radio" id="de40a50" name="idade" value="de40a50">mais de 40 até 50</label><br>          	
+                  <label><input type="radio" id="de50a60" name="idade" value="de50a60">mais de 50 até 60 anos</label><br>
+                  <label><input type="radio" id="mais60" name="idade" value="mais60">mais de 60</label>
+		</div>
+              </fieldset>
+            </form>
+          </div>
+        </td>
+      </tr>
+        <td>
+          <div class="esportes">
+            <form>
+              <fieldset>
+              <legend>Esportes que pratica</legend>
+                  <input type="checkbox" id="futebol_campo" name="esportes" value="futebol_campo">
+                  <label>Futebol de campo</label><br>
+                  <input type="checkbox" id="futebol_salao" name="esportes" value="futebol_salao">
+                  <label>Futebol de salão</label><br>
+                  <input type="checkbox" id="futebol_society" name="esportes" value="futebol_society">
+                  <label>Futebol society</label><br>
+                  <input type="checkbox" id="volley_quadra" name="esportes" value="volley_quadra">
+                  <label>Volley de quadra</label><br>
+                  <input type="checkbox" id="volley_praia" name="esportes" value="volley_praia">
+                  <label>Volley de praia</label><br>
+                  <input type="checkbox" id="natacao_em_piscina" name="esportes" value="natacao_em_piscina">
+                  <label>Natação em piscina</label><br>
+                  <input type="checkbox" id="natacao_mar_aberto" name="esportes" value="natacao_mar_aberto">
+                  <label>Natação em mar aberto</label><br> 
+              </fieldset>
+            </form>
+          </div>
+        </td>
+       </tr>
+       </tr>
+        <td>
+          <div class="comentario">
+            <form>
+              <fieldset>
+              <legend>Comentário</legend>
+                <label>Mensagem:</label><br>
+		<textarea></textarea><br>
+              </fieldset>
+            </form>
+          </div>
+	  <input class="botao" type="button" value="Cadastrar"><input class="botao" type="button" value="Excluir">
+        </td>
+       </tr>
+      </table>
+  </div> 
+</body>
+</html>

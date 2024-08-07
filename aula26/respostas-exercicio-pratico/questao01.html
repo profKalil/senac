@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <title>Page Title</title>
+  <meta charset="UTF-8">
+
+<!-------Inicio do style------->
+
+  <style>
+    body {
+      margin-top: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: "Arial Narrow", Arial, sans-serif;
+      font-size: 17px;
+    }
+    .formulario {
+      width: 500px;
+    }
+    .titulo {
+      font-family: arial;
+      font-size: 22px;
+      text-align: left;
+      font-weight: bold;
+    }
+    textarea {
+      width: 100%;
+      height: 200px;
+    }
+    .observacao {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+    .largura {
+      display: block;
+      width: 100%;
+    }
+  </style>
+</head>
+    
+<!-------Início do body-------->
+    
+<body>
+  
+  <div class="formulario">
+    <h1 class="titulo">Deixe um comentário</h1>
+    <forms>
+      <label class="largura" for="nome">Nome:</label>
+      <input class="largura" type="text" id="nome" name="nome">
+      <label class="largura" for="email">E-mail:</label>
+      <input class="largura" id="email" name="email" type="email">
+      <label class="largura" for="website">Website:</label>
+      <input class="largura" id="website" name="website" type="text">
+      <label class="largura" for="comentario">Comentário:</label>
+      <textarea id="comentario" name="comentario">  </textarea>
+      <label class="observacao largura">
+        Observação Seu comentário será publicado após passar pelo moderador</label>
+      <input type="submit" value="Enviar Comentário">
+    </forms>
+  </div>
+</body>
+</html>
