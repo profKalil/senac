@@ -1,0 +1,59 @@
+body, html {
+    background-color: #EEEEEE;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.corpo {
+    border: 2px solid #BFD3D5;
+}
+
+.principal {
+    width: 350px;
+    height: auto;
+    padding: 25px 25px 0 25px;
+    background-color: #F6F6F6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.principal form {
+    width: 100%;
+    /*height: 100%;*/
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.login {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid transparent;
+    position: relative;
+    margin-bottom: 10px;
+}
+.login label {
+    font-size: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: #066A75;
+    padding: 0;
+    margin-bottom: 5px;
+}
+.login::after {
+    background: linear-gradient(to right, transparent, #066A75, transparent);
+    content: "";
+    width: 100%;
+    height: 1px;
+    bottom: -5px;
+    position: absolute;
+    left: 0;
+}
+
