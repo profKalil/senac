@@ -1,0 +1,86 @@
+body, html {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-size: 18px;
+    background-color: #D9D9D9;
+}
+
+.contorno {
+    width: 365px;
+    height: 433px;
+    padding: 35px 25px 25px 25px;
+    background-color: #2E2E2E;
+}
+
+.visor {
+    height: 40px;
+    background-color: #E8ECEF;
+}
+
+.visor input {
+    width: 100%;
+    height: 100%;
+    text-align: right;
+    padding-right: 8px;
+}
+
+
+/*Teclado
+**************************/
+
+.teclado {
+    height: 300px;
+    margin-top: 25px;
+}
+
+.coluna1 {
+    flex-basis: 74%;
+    
+}
+
+.coluna2 {
+    flex-basis: 26%;
+    
+}
+
+.linha1, .linha2, .linha3, .linha4 {
+    margin-bottom: 8px;
+}
+
+
+/*Botões
+****************************/
+
+.btnLimpar, .btn0 {
+    flex: 1 1 63%;
+}
+
+.btnDividir, .btn7, .btn8, .btn9, .btn4, .btn5, .btn6, .btn1, .btn2, .btn3, .btnPonto {
+    flex: 1 1 30%;
+}
+
+.btnMultiplicar, .btnSubtrair, .btnSomar, .btnResultado {
+    flex: 1 1 100%;
+    /*width: 100%*/
+}
+
+.btnResultado {
+    height: 115px;
+}
+
+button {
+    height: 54px;
+    font-size: 20px;
+    background-color: #353A40;
+    color: #F1FFFF;
+    border: none;
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
+    border-radius: 6%;
+}
+
+.coluna1 button {
+    margin-right: 7px;
+}
