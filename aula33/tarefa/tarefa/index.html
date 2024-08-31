@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefas</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <h1>Lista de Tarefas</h1>
+
+    <input type="text" id="tarefa" placeholder="Digite uma tarefa">
+    <button id="adicionarBtn">Adicionar</button>
+    <button id="salvarBtn">Salvar</button>
+    <button id="carregarBtn">Carregar Tarefas</button>
+    <input type="file" id="fileInput" style="display: none;">
+
+    <table id="tabelaTarefas">
+        <thead>
+            <tr>
+                <th>Tarefa</th>
+            </tr>
+        </thead>
+        <tbody id="corpoTabela">
+            <!-- As tarefas serão adicionadas aqui -->
+        </tbody>
+    </table>
+
+    <script src="script.js"></script>
+</body>
+</html>
