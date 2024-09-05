@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz de Perguntas</title>
+    <style> 
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+        #quiz-container {
+            max-width: 600px;
+            margin: auto;
+        }         
+        .btn {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #result {
+            font-size: 18px;
+            font-weight: bold;
+        } 
+    </style>
+</head>
+<body>
+    <div id="quiz-container">
+        <h1>Quiz Interativo</h1>
+        <input type="text" id="perguntaInput" readonly>
+        <br>
+        <button class="btn" id="btnSim">Sim</button>
+        <button class="btn" id="btnNao">Não</button>
+        <div id="result" class="hidden"></div>
+    </div>
+
+    <script src="script.js">
+    </script>
+</body>
+</html>
