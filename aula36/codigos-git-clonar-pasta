@@ -1,8 +1,8 @@
-1. Instalar o git
+1. Instalar o git 
 
 2. Credenciais
 git config --global user.name "Seu Nome"
-git config --global user.email "seuemail@example.com"
+git config --global user.email "seuemail@example.com" 
 
 3. Clonar
 git clone --no-checkout https://github.com/profKalil/senac.git
