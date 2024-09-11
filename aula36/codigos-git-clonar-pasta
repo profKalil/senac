@@ -14,3 +14,19 @@ git checkout
 4. Login pelo navegador
 
 5. Commitar as mudanças
+
+// Caso precise sincronizar com seu próprio github
+
+1. Adicionar o Novo Repositório Remoto:
+Remova o repositório remoto original e adicione o novo repositório remoto:
+git remote remove origin
+git remote add origin https://github.com/aluno/nome-do-repositorio.git
+
+2. Fazer Alterações e Commitar:
+Faça as alterações necessárias nos arquivos e depois adicione e commite as mudanças:
+git add .
+git commit -m "Minhas alterações"
+
+3. Fazer o Push para o Novo Repositório:
+Envie as mudanças para o novo repositório no GitHub:
+git push -u origin main
