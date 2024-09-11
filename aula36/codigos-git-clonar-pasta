@@ -1,0 +1,16 @@
+1. Instalar o git
+
+2. Credenciais
+git config --global user.name "Seu Nome"
+git config --global user.email "seuemail@example.com"
+
+3. Clonar
+git clone --no-checkout <URL_DO_REPOSITORIO>
+cd <NOME_DO_REPOSITORIO>
+git sparse-checkout init --cone
+git sparse-checkout set <CAMINHO_DA_PASTA>
+git checkout
+
+4. Login pelo navegador
+
+5. Commitar as mudanças
