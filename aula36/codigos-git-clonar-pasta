@@ -5,10 +5,10 @@ git config --global user.name "Seu Nome"
 git config --global user.email "seuemail@example.com" 
 
 3. Clonar
-git clone --no-checkout https://github.com/profKalil/senac.git
+git clone --no-checkout https://github.com/profKalil/senac.git (pode ser qualquer repositório)
 cd senac
 git sparse-checkout init --cone
-git sparse-checkout set aula36
+git sparse-checkout set aula36  (pode ser qualquer pasta)
 git checkout
 
 4. Login pelo navegador
