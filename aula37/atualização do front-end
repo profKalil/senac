@@ -1,0 +1,56 @@
+import React, { useState, useEffect } from 'react';
+
+function Quiz({ proximaFase, reiniciarFase }) {
+  const [perguntas, setPerguntas] = useState([]);
+  const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [score, setScore] = useState(0);
+
+  // Função para buscar perguntas da API
+  useEffect(() => {
+    fetch('http://localhost:5000/perguntas')
+      .then((res) => res.json())
+      .then((data) => {
+        setPerguntas(data);
+      })
+      .catch((error) => {
+        console.error("Erro ao buscar perguntas:", error);
+      });
+  }, []);
+
+  const handleAnswerClick = (answer) => {
+    const isCorrect = answer === perguntas[currentQuestion].resposta_correta;
+
+    if (isCorrect) {
+      setScore(score + 1);
+    }
+
+    const nextQuestion = currentQuestion + 1;
+    if (nextQuestion < perguntas.length) {
+      setCurrentQuestion(nextQuestion);
+    } else {
+      // Final da fase, verificar se o usuário acertou todas
+      if (score === perguntas.length - 1) {
+        proximaFase();
+      } else {
+        reiniciarFase();
+      }
+    }
+  };
+
+  if (perguntas.length === 0) {
+    return <div>Carregando perguntas...</div>; // Enquanto as perguntas são carregadas
+  }
+
+  return (
+    <div>
+      <h2>{perguntas[currentQuestion].pergunta}</h2>
+      <div>
+        <button onClick={() => handleAnswerClick('A')}>A: {perguntas[currentQuestion].resposta_a}</button>
+        <button onClick={() => handleAnswerClick('B')}>B: {perguntas[currentQuestion].resposta_b}</button>
+        <button onClick={() => handleAnswerClick('C')}>C: {perguntas[currentQuestion].resposta_c}</button>
+      </div>
+    </div>
+  );
+}
+
+export default Quiz;
