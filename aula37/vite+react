@@ -1,0 +1,6 @@
+USAR VITE + REACT
+
+npm create vite@latest
+cd meu-quiz
+npm install
+npm run dev
