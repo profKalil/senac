@@ -4,3 +4,7 @@ npm create vite@latest
 cd meu-quiz
 npm install
 npm run dev
+
+INSTALAR A DEPENDÊNCIA PARA CRIAR ROTA
+
+npm install react-router-dom
