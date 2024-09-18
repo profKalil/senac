@@ -1,0 +1,12 @@
+CREATE TABLE perguntas (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  pergunta TEXT NOT NULL,
+  resposta_correta VARCHAR(1) NOT NULL,
+  resposta_a TEXT NOT NULL,
+  resposta_b TEXT NOT NULL,
+  resposta_c TEXT NOT NULL
+);
+
+-- Inserindo algumas perguntas de exemplo
+INSERT INTO perguntas (pergunta, resposta_correta, resposta_a, resposta_b, resposta_c) 
+VALUES ('Qual é a cor do céu?', 'A', 'Azul', 'Verde', 'Vermelho');
