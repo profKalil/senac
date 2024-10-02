@@ -1,0 +1,68 @@
+npm install react-hook-form
+
+
+
+CRIAR O FORMULÁRIO
+
+import React from 'react';
+import { useForm } from 'react-hook-form';
+
+const CadastroCurriculo = () => {
+  const { register, handleSubmit, formState: { errors } } = useForm();
+
+  const onSubmit = (data) => {
+    console.log(data);
+    // Aqui você pode fazer a chamada para uma API ou algo do tipo
+  };
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <div>
+        <label>Nome:</label>
+        <input {...register("nome", { required: true })} />
+        {errors.nome && <span>Nome é obrigatório</span>}
+      </div>
+
+      <div>
+        <label>Email:</label>
+        <input {...register("email", { required: true })} />
+        {errors.email && <span>Email é obrigatório</span>}
+      </div>
+
+      <div>
+        <label>Telefone:</label>
+        <input {...register("telefone")} />
+      </div>
+
+      <div>
+        <label>Experiência:</label>
+        <textarea {...register("experiencia", { required: true })} />
+        {errors.experiencia && <span>Experiência é obrigatória</span>}
+      </div>
+
+      <button type="submit">Cadastrar Currículo</button>
+    </form>
+  );
+};
+
+export default CadastroCurriculo;
+
+
+
+
+USAR O COMPONENTE
+
+import React from 'react';
+import CadastroCurriculo from './CadastroCurriculo';
+
+const App = () => {
+  return (
+    <div>
+      <h1>Cadastro de Currículo</h1>
+      <CadastroCurriculo />
+    </div>
+  );
+};
+
+export default App;
+
