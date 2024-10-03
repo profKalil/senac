@@ -1,19 +1,19 @@
-ROTEIRO DE BRIEFING
+ROTEIRO DE BRIEFING (Isabel Cunha)
 
 1. Conhecer a empresa
-** Mercado no qual atua
-** Objetivos
-** Produtos que oferece
-** Diferenciais em comparação com os concorrentes
-** Público-alvo
+** Mercado no qual atua: Recrutamento e seleção - consultoria em gestão de pessoas
+** Objetivos: Contratar pessoas com maior assertividade (problemas com a rotatividade), entender o negócio para pensar os cargos, organização interna, identificar a questão cultural, perfil etc
+** Produtos que oferece: recrutamento, consultoria em gestão de pessoas
+** Diferenciais em comparação com os concorrentes: a experiência que leva consigo, diversidade de empresas que trabalhou (dentre elas muitas grandes empresas), inovação do online 
+** Público-alvo: empresários (pequeno, médio e grande porte)
 
 2. A aparência do App da empresa
-** Ilustração com fotos das instalações ou serviços
-** Imagem a ser transmitida: modernidade, tradição...
-** Cores
-** Layout 
+** Ilustração com fotos das instalações ou serviços: fotos neutras, pessoas sorridentes com celular na mão ou notebook
+** Imagem a ser transmitida: modernidade (https://portal.gupy.io/)
+** Cores : roxo, branco, tons de azul
+** Layout (Bootstrap com menu lateral - proposta responsiva exibe e "recolhe")
 
-3. Coleta de materiais para criação/ideias
+3. Coleta de materiais para criação/ideias (o cliente passará por email)
 ** Folders
 ** Cartão de visita
 ** Manuais
@@ -23,5 +23,8 @@ ROTEIRO DE BRIEFING
 
 4. O que oferece o App da empresa
 ** Serviço de cadastro de vaga de emprego
-** Serviço de cadastro de candidatura às vagas de emprego cadastradas
+** Serviço de cadastro de candidatura às vagas de emprego anunciadas
 ** Outros: feedback dos usuários, fale conosco
+
+OUTRAS INFORMAÇÕES
+>> A Isabel terá uma vaga e disponiblizará o link para o email do interessado. Ele responde o formulário do APP, o cadastro vai para o Banco de Dados e a Isabel recebe uma notificação de que o cadastro foi concluído. 
