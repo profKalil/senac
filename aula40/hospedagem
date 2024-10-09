@@ -1,0 +1,9 @@
+ FIREBASE
+Prós: é um serviço da Google. Pode-se construir o projeto e "deploy" com apenas alguns comandos no Node.js
+Contra: MySQL não é o ideal. Suporte para banco não relacional chamado "Firestore"
+Tutorial: https://youtu.be/C_UUCf6g-ZQ?si=gLGVz-5Ywd5UrDNp
+
+HEROKU
+Prós: Oferece uma instância para MySQL através do ClearDB. 
+Contra: plano gratuito com limitação (dormir após um período)
+Tutorial: https://www.youtube.com/watch?v=mBCH9OTVaGw
