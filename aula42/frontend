@@ -1,0 +1,239 @@
+frontend/
+│
+├── public/
+│
+├── src/
+│   ├── App.jsx         # Componente principal
+│   ├── App.css         # Estilos
+│   ├── index.css       # Estilos globais
+│   ├── main.jsx        # Ponto de entrada do React
+│   ├── components/
+│       └── VagaForm.jsx  # Formulário para cadastrar vagas
+│
+├── index.html
+└── package.json
+
+
+
+
+
+
+
+/********************************************************
+
+  VAGAS DE EMPREGO EM App.jsx
+
+*******************************************************/
+
+
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import './App.css';
+import VagaForm from './components/VagaForm';
+
+function App() {
+    const [vagas, setVagas] = useState([]);
+
+    // Função para buscar as vagas do backend
+    const fetchVagas = () => {
+        axios.get('http://localhost:5000/vagas')
+            .then(response => {
+                setVagas(response.data);
+            })
+            .catch(error => {
+                console.error("Erro ao buscar vagas:", error);
+            });
+    };
+
+    // Chama a função para buscar as vagas quando o componente carrega
+    useEffect(() => {
+        fetchVagas();
+    }, []);
+
+    return (
+        <div className="App">
+            {/* Título da página */}
+            <header>
+                <h1>Vagas Disponíveis</h1>
+            </header>
+
+            {/* Formulário de cadastro de vagas */}
+            <VagaForm onVagaCadastrada={fetchVagas} />
+
+            {/* Tabela de vagas disponíveis */}
+            <section>
+                {vagas.length > 0 ? (
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Título</th>
+                                <th>Descrição</th>
+                                <th>Requisitos</th>
+                                <th>Salário</th>
+                                <th>Localização</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {vagas.map(vaga => (
+                                <tr key={vaga.id}>
+                                    <td>{vaga.titulo}</td>
+                                    <td>{vaga.descricao}</td>
+                                    <td>{vaga.requisitos}</td>
+                                    <td>{vaga.salario}</td>
+                                    <td>{vaga.localizacao}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                ) : (
+                    <p>Nenhuma vaga disponível no momento.</p>
+                )}
+            </section>
+        </div>
+    );
+}
+
+export default App;
+
+
+
+/********************************************************
+
+  ESTILIZAÇÃO EM App.css
+
+*******************************************************/
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.App {
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+
+
+/********************************************************
+
+  FORMULARIO EM VagaForm.jsx
+
+*******************************************************/
+
+
+
+import React, { useState } from 'react';
+import axios from 'axios';
+
+const VagaForm = ({ onVagaCadastrada }) => {
+    const [form, setForm] = useState({
+        titulo: '',
+        descricao: '',
+        requisitos: '',
+        salario: '',
+        localizacao: ''
+    });
+
+    // Função para atualizar os campos do formulário conforme o usuário digita
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setForm({ ...form, [name]: value });
+    };
+
+    // Função para enviar o formulário
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        axios.post('http://localhost:5000/vagas', form)
+            .then(() => {
+                // Limpa o formulário
+                setForm({
+                    titulo: '',
+                    descricao: '',
+                    requisitos: '',
+                    salario: '',
+                    localizacao: ''
+                });
+                // Notifica o componente pai que uma nova vaga foi cadastrada
+                onVagaCadastrada();
+            })
+            .catch(error => {
+                console.error("Erro ao cadastrar vaga:", error);
+            });
+    };
+
+    return (
+        <section>
+            <h2>Cadastrar Nova Vaga</h2>
+            <form onSubmit={handleSubmit}>
+                <input
+                    type="text"
+                    name="titulo"
+                    placeholder="Título da vaga"
+                    value={form.titulo}
+                    onChange={handleInputChange}
+                    required
+                />
+                <input
+                    type="text"
+                    name="descricao"
+                    placeholder="Descrição da vaga"
+                    value={form.descricao}
+                    onChange={handleInputChange}
+                />
+                <input
+                    type="text"
+                    name="requisitos"
+                    placeholder="Requisitos"
+                    value={form.requisitos}
+                    onChange={handleInputChange}
+                />
+                <input
+                    type="number"
+                    name="salario"
+                    placeholder="Salário"
+                    value={form.salario}
+                    onChange={handleInputChange}
+                />
+                <input
+                    type="text"
+                    name="localizacao"
+                    placeholder="Localização"
+                    value={form.localizacao}
+                    onChange={handleInputChange}
+                />
+                <button type="submit">Cadastrar Vaga</button>
+            </form>
+        </section>
+    );
+};
+
+export default VagaForm;
+
+ 
