@@ -1,0 +1,30 @@
+>> npm i axions
+
+(...)
+
+function App() {
+
+  const [rows, setRows] = React.useState([])
+
+  React.useEffect( () => {
+    axios.get("http.... [edpoint de listagem de vagas]...amazonaws.com/listar-vagas").then(
+      r => {
+        setRows(r.data.response)
+      }
+    )
+  }, [])
+
+return (
+  <div>
+
+    (...)
+
+  </div>
+
+(...)
+
+}
+
+
+
+
