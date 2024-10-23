@@ -1,0 +1,12 @@
+https://serverless.com/framework/docs/getting-started
+
+>> npm install -g serverless
+>> npx serverless
+
+criar um usuario no AWS (pelo IAM, parte de Usuários) para configurar o serverless (anotar os dados gerados)
+
+>> npx serverless config credentials --provider --key --secret
+
+>> npx serverless deploy
+
+backend aparecerá nas lambdas da AWS! (Ou seja, o código vai "subir")
