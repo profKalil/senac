@@ -1,3 +1,25 @@
+/**************************************************
+
+CÓDIGO DE ROTA PARA LISTAR VAGAS (UM MODELO PARA O BACKEND)  - arquivo gerado pelo serverless (handller.js)
+
+*************************************************/
+
+const serverless = require("serverless-http");
+const express = require("express");
+const mysql = require("mysql2/promise");
+const bodyParser = require("body-parser");  // auxilia na criação da rota
+const app = express();
+app.use(bodyParser.json());   // auxilia na criação da rota
+
+app.get('/listar-vagas', async (req, res, next) => {
+    const connection = await mysql.createConnection({ host: "aws... (edpoint)", user: "admin", password: "escola12114", database: "isabel_db" })
+    const [rows, fields] = await connection.execute("select * from vagas");
+    res.status(200).json({
+        response: rows
+    })
+})
+
+
 /***************************************************
 
 CÓDIGO QUE MOSTRA ROTAS (PARA ANÁLISE )
