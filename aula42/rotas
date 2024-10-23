@@ -1,0 +1,39 @@
+const express = require('express');
+const db = require('./db');
+const app = express();
+app.use(express.json());
+
+// Rota para cadastrar uma nova vaga
+app.post('/vagas', (req, res) => {
+    const { titulo, descricao, requisitos, salario, localizacao } = req.body;
+    const query = 'INSERT INTO vagas (titulo, descricao, requisitos, salario, localizacao) VALUES (?, ?, ?, ?, ?)';
+    db.query(query, [titulo, descricao, requisitos, salario, localizacao], (err, result) => {
+        if (err) {
+            return res.status(500).send('Erro ao cadastrar vaga');
+        }
+        res.status(201).send('Vaga cadastrada com sucesso');
+    });
+});
+
+// Rota para listar todas as vagas
+app.get('/vagas', (req, res) => {
+    const query = 'SELECT * FROM vagas';
+    db.query(query, (err, results) => {
+        if (err) {
+            return res.status(500).send('Erro ao listar vagas');
+        }
+        res.json(results);
+    });
+});
+
+// Rota para deletar uma vaga por ID
+app.delete('/vagas/:id', (req, res) => {
+    const { id } = req.params;
+    const query = 'DELETE FROM vagas WHERE id = ?';
+    db.query(query, [id], (err, result) => {
+        if (err) {
+            return res.status(500).send('Erro ao deletar vaga');
+        }
+        res.send('Vaga deletada com sucesso');
+    });
+});
