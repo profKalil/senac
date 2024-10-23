@@ -1,0 +1,24 @@
+const mysql = require('mysql2');
+require('dotenv').config();
+
+// Criação da conexão
+const db = mysql.createConnection({
+    host:  'database-1.c9iugqkyiwmz.us-east-2.rds.amazonaws.com'
+    user:  'admin'
+    password: 'escola12114'
+    database: 'isabel_db'
+});
+
+// Conectar ao banco
+db.connect((err) => {
+    if (err) {
+        console.error('Erro ao conectar ao banco de dados:', err);
+        return;
+    }
+    console.log('Conectado ao banco de dados MySQL');
+});
+
+module.exports = db;
+
+
+
