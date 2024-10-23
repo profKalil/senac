@@ -10,3 +10,5 @@ criar um usuario no AWS (pelo IAM, parte de Usuários) para configurar o serverl
 >> npx serverless deploy
 
 backend aparecerá nas lambdas da AWS! (Ou seja, o código vai "subir")
+
+Testar as rotas com a extensão THUNDER CLIENT (busca no banco de dados e exibe o "Response")
