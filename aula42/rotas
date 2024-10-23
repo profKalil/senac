@@ -1,3 +1,10 @@
+/***************************************************
+
+CÓDIGO QUE MOSTRA ROTAS (PARA ANÁLISE )
+
+***************************************************/
+
+
 const express = require('express');
 const db = require('./db');
 const app = express();
